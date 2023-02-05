@@ -88,31 +88,6 @@ class MainActivity : AppCompatActivity() {
             }
             dialog.show()
             }
-//            System.out.println(" in click $position")
-//            //  arrayList.removeAt(position)
-//            //  arrayAdapter.notifyDataSetChanged()
-//            var alertDialog = AlertDialog.Builder(this)
-//            alertDialog.setTitle(resources.getString(R.string.modify_data))
-//            alertDialog.setMessage(resources.getString(R.string.modify_data_msg))
-//            alertDialog.setCancelable(false)
-//
-//            alertDialog.setNeutralButton(resources.getString(R.string.cancel)){_,_->
-//                alertDialog.setCancelable(true)
-//            }
-//            alertDialog.setPositiveButton(resources.getString(R.string.delete)){_,_->
-//                i=0
-//                arrayList.removeAt(position)
-//                arrayAdapter.notifyDataSetChanged()
-//
-//            }
-//            alertDialog.setNegativeButton(resources.getString(R.string.add)){_,_->
-//                arrayList[position] = (arrayList[position].toInt()+2).toString()
-//                arrayAdapter.notifyDataSetChanged()
-//
-//            }
-//            alertDialog.show()
-
-
         }
 
 
