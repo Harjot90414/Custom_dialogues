@@ -4,11 +4,12 @@
     <string name="delete">Delete</string>
     <string name="add">Add</string>
     <string name="add_data">Add Data</string>
-    <string name="add_data_msg">Press Three for 3 alphabets Press Four for 4 alphabets press Five for 5 alphabets</string>
+    <string name="add_data_msg">Press Add to add an item and press cancel to dismiss</string>
     <string name="three">Three</string>
     <string name="four">Four</string>
     <string name="five">Five</string>
     <string name="modify_data">Modify Data</string>
     <string name="modify_data_msg">Select ADD to add 2 to item and press YES to remove an item</string>
     <string name="enter_name">Enter Name</string>
+    <string name="update">Update</string>
 </resources>

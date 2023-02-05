@@ -13,7 +13,7 @@ import com.harjot.custom_dialogues.databinding.LayoutCustomDialogBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding : ActivityMainBinding
-    var i=0
+    var i="Name"
     lateinit var arrayAdapter : ArrayAdapter<String>
     var arrayList = arrayListOf<String>()
 
@@ -31,33 +31,28 @@ class MainActivity : AppCompatActivity() {
             alertDialog.setMessage(resources.getString(R.string.add_data_msg))
             alertDialog.setCancelable(false)
 
-            alertDialog.setNeutralButton(resources.getString(R.string.three)){_,_->
-                i=3
-                arrayList.add((i).toString())
-                //to update the list
-                arrayAdapter.notifyDataSetChanged()
+            alertDialog.setNeutralButton(resources.getString(R.string.cancel)){_,_->
+                alertDialog.setCancelable(true)
+
+
             }
 
 
 
-            alertDialog.setNegativeButton(resources.getString(R.string.four)){_,_->
-//                arrayList[position] = (arrayList[position].toInt()+2).toString()
-//                arrayAdapter.notifyDataSetChanged()
-                i=4
-                arrayList.add((i).toString())
-                //to update the list
-                arrayAdapter.notifyDataSetChanged()
-            }
 
 
-            alertDialog.setPositiveButton(resources.getString(R.string.five)){_,_->
+
+            alertDialog.setPositiveButton(resources.getString(R.string.add)){_,_->
 //                i=0
 //                arrayList.removeAt(position)
 //                arrayAdapter.notifyDataSetChanged()
-                i=5
+
                 arrayList.add((i).toString())
                 //to update the list
                 arrayAdapter.notifyDataSetChanged()
+//                arrayList.add((i).toString())
+//                //to update the list
+//                arrayAdapter.notifyDataSetChanged()
             }
 
             alertDialog.show()
@@ -70,14 +65,26 @@ class MainActivity : AppCompatActivity() {
         binding.lvListView.setOnItemClickListener { _, _, position, _ ->
             var dialog = Dialog(this)
             var dialogBinding = LayoutCustomDialogBinding.inflate(layoutInflater)
+
             dialog.setContentView(dialogBinding.root)
             dialog.window?.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT)
-            dialogBinding.etName.setText("123")
-            dialogBinding.btnAdd.setOnClickListener {
+            dialogBinding.etName.setText(arrayList[position])
+
+            dialogBinding.btnUpdate.setOnClickListener {
                 if(dialogBinding.etName.text.toString().isNullOrEmpty()){
                     dialogBinding.etName.error = resources.getString(R.string.enter_name)
-                }else
-                    dialog.dismiss()
+                }
+                else
+//                    binding.lvListView.setText(dialogBinding.etName.text.toString())
+                    arrayList[position]= dialogBinding.etName.text.toString()
+                arrayAdapter.notifyDataSetChanged()
+            dialog.dismiss()
+            }
+
+            dialogBinding.btnDelete.setOnClickListener {
+                arrayList.removeAt(position)
+                arrayAdapter.notifyDataSetChanged()
+            dialog.dismiss()
             }
             dialog.show()
             }
@@ -104,6 +111,7 @@ class MainActivity : AppCompatActivity() {
 //
 //            }
 //            alertDialog.show()
+
 
         }
 
